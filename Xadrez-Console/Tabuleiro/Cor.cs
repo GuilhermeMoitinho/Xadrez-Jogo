@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace Xadrez_Console.Tabuleiro
 {
-    internal class Cor
+    enum Cor
     {
+        Branca, 
+        Preta,
+        Amarela, 
+        Azul, 
+        vermelha, 
+        Verde,
+        Laranja
     }
 }

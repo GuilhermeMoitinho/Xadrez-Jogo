@@ -1,10 +1,21 @@
 ﻿using Tabuleiro;
+using Xadrez_Console.Tabuleiro;
 
-Posicao p;
+namespace Xadrez_Console {
+    class Program {
+        static void Main(string[] args)
+        {
 
-p = new Posicao(3, 4);
+           
+            Tab tabuleiro = new Tab(8, 8);
 
-Console.WriteLine(p);
-Console.ReadLine();
+            Tela.ImprimirTabuleiro( tabuleiro );
+
+            Console.ReadLine();
+
+        }
+
+     }
+}
 
 
