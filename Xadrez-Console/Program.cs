@@ -7,9 +7,25 @@ namespace Xadrez_Console {
         static void Main(string[] args)
         {
 
-           PosicaoXadrez pos = new PosicaoXadrez('a', 1);
+            try
+            {
+                Tab tabuleiro = new Tab(8, 8);
 
-            Console.WriteLine(pos.toPosicao());
+                tabuleiro.ColocarPeca(new Torre(Cor.Preta, tabuleiro), new Posicao(0, 0));
+                tabuleiro.ColocarPeca(new Torre(Cor.Preta, tabuleiro), new Posicao(1, 3));
+                tabuleiro.ColocarPeca(new Rei(Cor.Preta, tabuleiro), new Posicao(1, 5));
+
+                tabuleiro.ColocarPeca(new Torre(Cor.Branca, tabuleiro), new Posicao(3, 5));
+               
+
+
+
+                Tela.ImprimirTabuleiro(tabuleiro);
+            }
+            catch (ExcessaoTabuleiro e)
+            {
+                Console.WriteLine(e.Message);
+            }
             Console.ReadLine();
 
         }
