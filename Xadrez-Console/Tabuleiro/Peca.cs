@@ -26,5 +26,10 @@ namespace Xadrez_Console.Tabuleiro
             Movimentos = 0;
             Tab = tab;
         }
+
+        public void IncrementarQntMovimentos()
+        {
+            Movimentos++;
+        }
     }
 }
