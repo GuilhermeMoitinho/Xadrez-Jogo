@@ -19,9 +19,9 @@ namespace Xadrez_Console.Tabuleiro
 
         public Peca() { }
 
-        public Peca(Posicao posicao, Cor cor, Tab tab)
+        public Peca(Cor cor, Tab tab)
         {
-            Posicao = posicao;
+            Posicao = null;
             Cor = cor;
             Movimentos = 0;
             Tab = tab;
