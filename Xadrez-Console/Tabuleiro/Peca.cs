@@ -7,7 +7,7 @@ using Tabuleiro;
 
 namespace Xadrez_Console.Tabuleiro
 {
-    internal class Peca
+    internal abstract class Peca
     {
         public Posicao Posicao { get; set; }
 
@@ -15,7 +15,7 @@ namespace Xadrez_Console.Tabuleiro
 
         public int Movimentos { get; protected set; }
 
-        public Tab Tab { get; protected set; }
+        public Tab tab { get; protected set; }
 
         public Peca() { }
 
@@ -24,12 +24,15 @@ namespace Xadrez_Console.Tabuleiro
             Posicao = null;
             Cor = cor;
             Movimentos = 0;
-            Tab = tab;
+            this.tab = tab;
         }
 
         public void IncrementarQntMovimentos()
         {
             Movimentos++;
         }
+
+        public abstract bool[,] movimentoPossiveis();
+         
     }
 }

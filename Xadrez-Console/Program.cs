@@ -1,4 +1,5 @@
-﻿using Tabuleiro;
+﻿using System;
+using Tabuleiro;
 using Xadrez_Console.Tabuleiro;
 using Xadrez_Console.Xadrez;
 
@@ -8,7 +9,7 @@ namespace Xadrez_Console {
         {
 
             try
-            {
+            { 
                 PartidaDeXadrez partida = new PartidaDeXadrez();
 
                 while (!partida.Terminada)
@@ -20,6 +21,12 @@ namespace Xadrez_Console {
 
                     Console.Write("Origem: ");
                     Posicao origem = Tela.LerPosicaoXadrez().toPosicao();
+
+                    bool[,] PosicoesPossiveis = partida.tab.peca(origem).movimentoPossiveis();
+
+                    Console.Clear();
+                    Tela.ImprimirTabuleiro(partida.tab, PosicoesPossiveis);
+
                     Console.Write("Destino: ");
                     Posicao destino = Tela.LerPosicaoXadrez().toPosicao();
 
