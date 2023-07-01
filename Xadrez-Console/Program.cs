@@ -1,5 +1,4 @@
 ﻿using System;
-using Tabuleiro;
 using Xadrez_Console.Tabuleiro;
 using Xadrez_Console.Xadrez;
 
@@ -14,23 +13,36 @@ namespace Xadrez_Console {
 
                 while (!partida.Terminada)
                 {
-                    Console.Clear();
-                    Tela.ImprimirTabuleiro(partida.tab);
+                    try
+                    {
+                        Console.Clear();
+                        Tela.ImprimirTabuleiro(partida.tab);
+                        Console.WriteLine("Turno: " + partida.Turno);
+                        Console.WriteLine("Aguardando a jogada: " + partida.JogadorAtual);
 
-                    Console.WriteLine();
+                        Console.WriteLine();
 
-                    Console.Write("Origem: ");
-                    Posicao origem = Tela.LerPosicaoXadrez().toPosicao();
+                        Console.Write("Origem: ");
+                        Posicao origem = Tela.LerPosicaoXadrez().toPosicao();
+                        partida.ValidarPosicaoDeOrigem(origem);
 
-                    bool[,] PosicoesPossiveis = partida.tab.peca(origem).movimentoPossiveis();
+                        bool[,] PosicoesPossiveis = partida.tab.peca(origem).movimentoPossiveis();
 
-                    Console.Clear();
-                    Tela.ImprimirTabuleiro(partida.tab, PosicoesPossiveis);
+                        Console.Clear();
+                        Tela.ImprimirTabuleiro(partida.tab, PosicoesPossiveis);
 
-                    Console.Write("Destino: ");
-                    Posicao destino = Tela.LerPosicaoXadrez().toPosicao();
+                        Console.WriteLine();
+                        Console.Write("Destino: ");
+                        Posicao destino = Tela.LerPosicaoXadrez().toPosicao();
+                        partida.ValidarPosicaoDeDestino(origem, destino);
 
-                    partida.ExecutaMovimento(origem, destino);
+                        partida.RealizaJogada(origem, destino);
+                    }
+                    catch (ExcessaoTabuleiro e)
+                    {
+                        Console.WriteLine(e.Message );
+                        Console.ReadLine();
+                    }
                 }
 
                
