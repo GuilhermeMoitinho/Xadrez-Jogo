@@ -35,6 +35,8 @@ namespace Xadrez_Console {
                         partida.ValidarPosicaoDeDestino(origem, destino);
 
                         partida.RealizaJogada(origem, destino);
+
+
                     }
                     catch (ExcessaoTabuleiro e)
                     {
@@ -42,14 +44,17 @@ namespace Xadrez_Console {
                         Console.ReadLine();
                     }
                 }
+               Console.Clear();
+               Tela.imprimirPartida(partida );
 
-               
+
             }
             catch (ExcessaoTabuleiro e)
             {
                 Console.WriteLine(e.Message);
             }
             Console.ReadLine();
+            
 
         }
 
