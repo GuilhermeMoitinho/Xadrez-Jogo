@@ -43,6 +43,7 @@ namespace Xadrez_Console.Xadrez
             if (Cor == Cor.Branca)
             {
                 //acima
+
                 pos.DefinirValores(Posicao.Linha - 1, Posicao.Coluna);
                 if (tab.PosicaoValida(pos) && livre(pos))
                 {
@@ -51,7 +52,8 @@ namespace Xadrez_Console.Xadrez
 
                 //nordeste
                 pos.DefinirValores(Posicao.Linha - 2, Posicao.Coluna);
-                if (tab.PosicaoValida(pos) && livre(pos) && Movimentos == 0)
+                Posicao p2 = new Posicao(Posicao.Linha - 1, Posicao.Coluna);
+                if (tab.PosicaoValida(p2) && tab.PosicaoValida(pos) && livre(pos) && Movimentos == 0)
                 {
                     mat[pos.Linha, pos.Coluna] = true;
                 }
@@ -82,7 +84,8 @@ namespace Xadrez_Console.Xadrez
 
                 //Sudoeste
                 pos.DefinirValores(Posicao.Linha + 2, Posicao.Coluna);
-                if (tab.PosicaoValida(pos) && existeInimigo(pos) && Movimentos == 0)
+                Posicao p2 = new Posicao(Posicao.Linha + 1, Posicao.Coluna);
+                if (tab.PosicaoValida(p2) && tab.PosicaoValida(pos) && existeInimigo(pos) && Movimentos == 0)
                 {
                     mat[pos.Linha, pos.Coluna] = true;
                 }
